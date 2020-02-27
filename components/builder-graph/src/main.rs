@@ -466,6 +466,8 @@ fn do_deps(datastore: &DataStore, graph: &PackageGraph, name: &str, filter: &str
 
     println!("Dependencies for: {}", ident);
 
+    graph.write_deps(name);
+
     match datastore.get_job_graph_package(&ident, &target) {
         Ok(package) => {
             let end_time = PreciseTime::now();
